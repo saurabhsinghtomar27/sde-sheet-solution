@@ -1,0 +1,28 @@
+class Solution {
+    public void reverse(char str[],int low,int high){
+        while(low<=high){
+            char ch=str[low];
+            str[low]=str[high];
+            str[high]=ch;
+            low++;
+            high--;
+        }
+    }
+    public String reverseWords(String s) {
+        String S=s.replaceAll("\\s+", " ");// extra space trim
+        S=S.trim();
+        char []ch=S.toCharArray();
+        int j=0;
+        for(int i=0;i<ch.length;i++){
+if(ch[i]==' '){
+    reverse(ch,j,i-1);
+    j=i+1;
+}
+        }
+        reverse(ch,j,ch.length-1);
+        reverse(ch,0,ch.length-1);
+        String str=new String(ch);
+       
+        return str;
+    }
+}
